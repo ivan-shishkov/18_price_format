@@ -66,6 +66,11 @@ def main():
     if not price:
         sys.exit('Empty string entered')
 
+    pretty_formatted_price = format_price(
+        price=price,
+        count_digits_after_point=count_digits_after_point,
+    )
+
 
 
 if __name__ == '__main__':
