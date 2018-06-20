@@ -10,11 +10,14 @@ def get_float_value(price):
         return None
 
 
-def get_price_string_format(price_float_value, count_digits_after_point):
+def get_formatted_price_string(price_float_value, count_digits_after_point):
     if price_float_value.is_integer():
-        return '{:,.0f}'
+        return '{:,.0f}'.format(price_float_value)
     else:
-        return '{:,.{precision}f}'.format(precision=count_digits_after_point)
+        return '{:,.{precision}f}'.format(
+            price_float_value,
+            precision=count_digits_after_point,
+        )
 
 
 def format_price(price, count_digits_after_point=2):
@@ -29,12 +32,12 @@ def format_price(price, count_digits_after_point=2):
     if not math.isfinite(price_float_value):
         return None
 
-    price_string_format = get_price_string_format(
+    formatted_price_string = get_formatted_price_string(
         price_float_value=price_float_value,
         count_digits_after_point=count_digits_after_point,
     )
 
-    return price_string_format.format(price_float_value).replace(',', ' ')
+    return formatted_price_string.replace(',', ' ')
 
 
 def parse_command_line_arguments():
