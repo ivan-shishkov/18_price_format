@@ -63,6 +63,17 @@ class FormatPriceTest(unittest.TestCase):
         self.assertEqual('1 234 567 890', format_price(price='1234567890'))
         self.assertEqual('1 234 567 890.12', format_price(price=1234567890.12))
 
+    def test_price_format_for_rounded_values(self):
+        self.assertEqual('1 234.57', format_price(price=1234.567))
+        self.assertEqual(
+            '1 234.567',
+            format_price(price='1234.567', count_digits_after_point=3),
+        )
+        self.assertEqual(
+            '1 234.568',
+            format_price(price=1234.5678, count_digits_after_point=3),
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
