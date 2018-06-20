@@ -50,6 +50,25 @@ Pretty formatted price value: 1 234.567
 
 ```
 
+## Usage as module
+
+Module's interface is presented of the **format_price** function:
+
+```py
+format_price(price, count_digits_after_point=2)
+
+```
+
+Function arguments:
+
+* **price** - a price for pretty formatting
+* **count_digits_after_point** - a count of digits precision after decimal point for rounding of price value if it is not a integer value (default value is 2)
+
+Function returns:
+
+* **None** - when price value is incorrect and could not get the pretty-formatted price representation
+* the pretty-formatted price representation otherwise
+
 # Project Goals
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
