@@ -74,6 +74,7 @@ def main():
     if pretty_formatted_price is None:
         sys.exit('Could not to format price. Entered price is incorrect')
 
+    print('Pretty formatted price value: {}'.format(pretty_formatted_price))
 
 
 if __name__ == '__main__':
