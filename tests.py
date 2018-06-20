@@ -55,6 +55,14 @@ class FormatPriceTest(unittest.TestCase):
         self.assertEqual('-1 234.56', format_price(price='-1234.56'))
         self.assertEqual('-1 234.56', format_price(price=-1234.56))
 
+    def test_price_format_for_million(self):
+        self.assertEqual('1 234 567', format_price(price='1234567'))
+        self.assertEqual('1 234 567.89', format_price(price=1234567.89))
+
+    def test_price_format_for_billion(self):
+        self.assertEqual('1 234 567 890', format_price(price='1234567890'))
+        self.assertEqual('1 234 567 890.12', format_price(price=1234567890.12))
+
 
 if __name__ == '__main__':
     unittest.main()
