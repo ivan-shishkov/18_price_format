@@ -71,6 +71,9 @@ def main():
         count_digits_after_point=count_digits_after_point,
     )
 
+    if pretty_formatted_price is None:
+        sys.exit('Could not to format price. Entered price is incorrect')
+
 
 
 if __name__ == '__main__':
