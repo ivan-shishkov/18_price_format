@@ -29,6 +29,27 @@ optional arguments:
 
 ```
 
+Examples of script launch on Linux:
+
+```bash
+
+$ python3 format_price.py price12345
+Could not to format price. Entered price is incorrect
+
+$ python3 format_price.py 123456789
+Pretty formatted price value: 123 456 789
+
+$ python3 format_price.py 1234567.89
+Pretty formatted price value: 1 234 567.89
+
+$ python3 format_price.py 1234.567
+Pretty formatted price value: 1 234.57
+
+$ python3 format_price.py 1234.567 --digits 3
+Pretty formatted price value: 1 234.567
+
+```
+
 # Project Goals
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
