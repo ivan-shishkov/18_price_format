@@ -1,5 +1,6 @@
 import argparse
 import math
+import sys
 
 
 def get_float_value(price):
@@ -61,6 +62,10 @@ def main():
 
     price = command_line_arguments.price
     count_digits_after_point = command_line_arguments.digits
+
+    if not price:
+        sys.exit('Empty string entered')
+
 
 
 if __name__ == '__main__':
