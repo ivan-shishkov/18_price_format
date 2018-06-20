@@ -2,14 +2,18 @@ import argparse
 import math
 
 
+def get_float_value(price):
+    try:
+        return float(price)
+    except ValueError:
+        return None
+
+
 def format_price(price, count_digits_after_point=2):
     if isinstance(price, bool):
         return None
 
-    try:
-        price_float_value = float(price)
-    except ValueError:
-        return None
+    price_float_value = get_float_value(price)
 
     if price_float_value is None:
         return None
