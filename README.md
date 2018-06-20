@@ -87,6 +87,16 @@ None
 
 ```
 
+# Launch Tests
+
+For launch tests need to execute:
+
+```bash
+
+$ python3 tests.py
+
+```
+
 # Project Goals
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
