@@ -6,7 +6,7 @@ import sys
 def get_float_value(price):
     try:
         return float(price)
-    except ValueError:
+    except (TypeError, ValueError):
         return None
 
 
