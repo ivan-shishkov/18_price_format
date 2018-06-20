@@ -69,6 +69,24 @@ Function returns:
 * **None** - when price value is incorrect and could not get the pretty-formatted price representation
 * the pretty-formatted price representation otherwise
 
+Example of module usage:
+
+```py
+>>> from format_price import format_price
+>>>
+>>> print(format_price('price12345'))
+None
+>>> print(format_price('123456789'))
+123 456 789
+>>> print(format_price(1234567.89))
+1 234 567.89
+>>> print(format_price('1234.567'))
+1 234.57
+>>> print(format_price('1234.567', count_digits_after_point=3))
+1 234.567
+
+```
+
 # Project Goals
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
