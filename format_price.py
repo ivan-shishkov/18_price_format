@@ -3,13 +3,6 @@ import math
 import sys
 
 
-def get_float_value(price):
-    try:
-        return float(price)
-    except (TypeError, ValueError):
-        return None
-
-
 def get_formatted_price_string(price_float_value, count_digits_after_point):
     if price_float_value.is_integer():
         return '{:,.0f}'.format(price_float_value)
@@ -24,9 +17,9 @@ def format_price(price, count_digits_after_point=2):
     if isinstance(price, bool):
         return None
 
-    price_float_value = get_float_value(price)
-
-    if price_float_value is None:
+    try:
+        price_float_value = float(price)
+    except (TypeError, ValueError):
         return None
 
     if not math.isfinite(price_float_value):
