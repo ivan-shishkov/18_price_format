@@ -3,16 +3,6 @@ import math
 import sys
 
 
-def get_formatted_price_string(price_float_value, count_digits_after_point):
-    if price_float_value.is_integer():
-        return '{:,.0f}'.format(price_float_value)
-    else:
-        return '{:,.{precision}f}'.format(
-            price_float_value,
-            precision=count_digits_after_point,
-        )
-
-
 def format_price(price, count_digits_after_point=2):
     if isinstance(price, bool):
         return None
@@ -25,12 +15,15 @@ def format_price(price, count_digits_after_point=2):
     if not math.isfinite(price_float_value):
         return None
 
-    formatted_price_string = get_formatted_price_string(
-        price_float_value=price_float_value,
-        count_digits_after_point=count_digits_after_point,
-    )
+    if price_float_value.is_integer():
+        price_formatted_string = '{:,.0f}'.format(price_float_value)
+    else:
+        price_formatted_string = '{:,.{precision}f}'.format(
+            price_float_value,
+            precision=count_digits_after_point,
+        )
 
-    return formatted_price_string.replace(',', ' ')
+    return price_formatted_string.replace(',', ' ')
 
 
 def parse_command_line_arguments():
