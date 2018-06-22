@@ -8,18 +8,21 @@ def format_price(price, count_digits_after_point=2):
         return None
 
     try:
-        price_float_value = float(price)
+        price_rounded_float_value = round(
+            float(price),
+            count_digits_after_point,
+        )
     except (TypeError, ValueError):
         return None
 
-    if not math.isfinite(price_float_value):
+    if not math.isfinite(price_rounded_float_value):
         return None
 
-    if price_float_value.is_integer():
-        price_formatted_string = '{:,.0f}'.format(price_float_value)
+    if price_rounded_float_value.is_integer():
+        price_formatted_string = '{:,.0f}'.format(price_rounded_float_value)
     else:
         price_formatted_string = '{:,.{precision}f}'.format(
-            price_float_value,
+            price_rounded_float_value,
             precision=count_digits_after_point,
         )
 
