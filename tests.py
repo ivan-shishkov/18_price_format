@@ -74,6 +74,17 @@ class FormatPriceTest(unittest.TestCase):
             format_price(price=1234.5678, count_digits_after_point=3),
         )
 
+    def test_price_format_for_small_values(self):
+        self.assertEqual('0', format_price(price=0.0049))
+        self.assertEqual(
+            '0.005',
+            format_price(price=0.0049, count_digits_after_point=3),
+        )
+        self.assertEqual(
+            '0.0049',
+            format_price(price=0.0049, count_digits_after_point=4),
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
